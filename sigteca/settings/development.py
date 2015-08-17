@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
+from sigteca.settings import *
 import os
-from main import *
 
 DEBUG = True
 
