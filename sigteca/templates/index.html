@@ -1,0 +1,287 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "Página Inicial" %}{% endblock title %}
+{% block title_nav %}{% trans "Página Inicial" %}{% endblock title_nav %}
+
+{% block header %}
+  <style type="text/css">
+    div.card-image {
+      max-height: 300px;
+      background-repeat: no-repeat;
+      overflow: hidden;
+      -moz-transition: 0.5s;
+      -ms-transition: 0.5s;
+      -o-transition: 0.5s;
+      -webkit-transition: 0.5s;
+      transition: 0.5s;
+      opacity: 0.6;
+    }
+    div.card-image:hover {
+      max-height: 550px;
+      opacity: 1.0;
+    }
+
+    li.comment-area {
+      
+    }
+
+    div.modal-comments {
+      display: block;
+      opacity: 0;
+      bottom: -100%;
+    }
+  </style>
+{% endblock header %}
+{% block content %}
+  <div class="container center container-top">
+    <h3>{% trans "Lista de HQs disponíveis" %}</h3>
+  </div>
+  <div class="row">
+    <div class="col s12 m4">
+      <div class="card" id="card-1">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="image-card-click" src="{% static 'img/capa/hq1.jpg' %}">
+        </div>
+        <div class="card-content">
+          <div class="row card-title activator grey-text text-darken-4">
+            <div class="col s12 m11">
+              <span class="activator">Saiba Mais! Inclusão Social</span>
+            </div>
+            <div class="col s12 m1">
+              <span><i class="mdi-navigation-more-vert right"></i></span>
+            </div>
+          </div>
+          <p class="center"><a class="modal-trigger waves-effect waves-teal btn-flat teal-text" data-target="modal2">Comentários</a></p>
+        </div>
+        <div class="card-reveal">
+          <div class="row">
+            <div class="col s12 m11">
+              <span class="card-title grey-text text-darken-4">Saiba Mais! Inclusão Social</span>
+            </div>  
+            <div class="col s12 m1">
+              <span class="card-title grey-text text-darken-4"><i class="mdi-navigation-close right"></i></span>
+            </div>
+          </div>
+          <p>Um HQ de Maurício de Souza sobre Inclusão Social. A turma da Mônica. Mais um HQ da série <b>Saiba Mais!</b></p>
+        </div>
+      </div>
+    </div>
+    <div class="col s12 m4">
+      <div class="card" id="card-1">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="image-card-click" src="{% static 'img/capa/hq2.jpg' %}">
+        </div>
+        <div class="card-content">
+          <div class="row card-title activator grey-text text-darken-4">
+            <div class="col s12 m11">
+              <span class="activator">Turma da Mônica: Vacinação é um gesto de amor</span>
+            </div>
+            <div class="col s12 m1">
+              <span><i class="mdi-navigation-more-vert right"></i></span>
+            </div>
+          </div>
+          <p class="center"><a class="modal-trigger waves-effect waves-teal btn-flat teal-text" data-target="modal2">Comentários</a></p>
+        </div>
+        <div class="card-reveal">
+          <div class="row">
+            <div class="col s12 m11">
+              <span class="card-title grey-text text-darken-4">Turma da Mônica: Vacinação é um gesto de amor</span>
+            </div>  
+            <div class="col s12 m1">
+              <span class="card-title grey-text text-darken-4"><i class="mdi-navigation-close right"></i></span>
+            </div>
+          </div>
+          <p>Um HQ de Maurício de Souza sobre Vacinação. A turma da Mônica. Mais um HQ da série <b>Turma da Mônica!</b></p>
+        </div>
+      </div>
+    </div>
+    <div class="col s12 m4">
+      <div class="card" id="card-1">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="image-card-click" src="{% static 'img/capa/hq3.jpg' %}">
+        </div>
+        <div class="card-content">
+          <div class="row card-title activator grey-text text-darken-4">
+            <div class="col s12 m11">
+              <span class="activator">Turma da Mônica: Classicos do Cinema</span>
+            </div>
+            <div class="col s12 m1">
+              <span><i class="mdi-navigation-more-vert right"></i></span>
+            </div>
+          </div>
+          <p class="center"><a class="modal-trigger waves-effect waves-teal btn-flat teal-text" data-target="modal2">Comentários</a></p>
+        </div>
+        <div class="card-reveal">
+          <div class="row">
+            <div class="col s12 m11">
+              <span class="card-title grey-text text-darken-4">Turma da Mônica: Classicos do Cinema</span>
+            </div>  
+            <div class="col s12 m1">
+              <span class="card-title grey-text text-darken-4"><i class="mdi-navigation-close right"></i></span>
+            </div>
+          </div>
+          <p>Um HQ de Maurício de Souza sobre Cinema. A turma da Mônica. Mais um HQ da série <b>Turma da Mônica!</b></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col s12 m4">
+      <div class="card" id="card-1">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="image-card-click" src="{% static 'img/capa/hq4.jpg' %}">
+        </div>
+        <div class="card-content">
+          <div class="row card-title activator grey-text text-darken-4">
+            <div class="col s12 m11">
+              <span class="activator">Classicos do Cinema: Comandante Gancho</span>
+            </div>
+            <div class="col s12 m1">
+              <span><i class="mdi-navigation-more-vert right"></i></span>
+            </div>
+          </div>
+          <p class="center"><a class="modal-trigger waves-effect waves-teal btn-flat teal-text" data-target="modal2">Comentários</a></p>
+        </div>
+        <div class="card-reveal">
+          <div class="row">
+            <div class="col s12 m11">
+              <span class="card-title grey-text text-darken-4">Classicos do Cinema: Comandante Gancho</span>
+            </div>  
+            <div class="col s12 m1">
+              <span class="card-title grey-text text-darken-4"><i class="mdi-navigation-close right"></i></span>
+            </div>
+          </div>
+          <p>Um HQ de Maurício de Souza sobre Cinema. A turma da Mônica. Mais um HQ da série <b>Turma da Mônica!</b></p>
+        </div>
+      </div>
+    </div>
+    <div class="col s12 m4">
+      <div class="card" id="card-1">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="image-card-click" src="{% static 'img/capa/hq5.jpg' %}">
+        </div>
+        <div class="card-content">
+          <div class="row card-title activator grey-text text-darken-4">
+            <div class="col s12 m11">
+              <span class="activator">Turma da Mônica: A pele e o sol</span>
+            </div>
+            <div class="col s12 m1">
+              <span><i class="mdi-navigation-more-vert right"></i></span>
+            </div>
+          </div>
+          <p class="center"><a class="modal-trigger waves-effect waves-teal btn-flat teal-text" data-target="modal2">Comentários</a></p>
+        </div>
+        <div class="card-reveal">
+          <div class="row">
+            <div class="col s12 m11">
+              <span class="card-title grey-text text-darken-4">Turma da Mônica: A pele e o sol</span>
+            </div>  
+            <div class="col s12 m1">
+              <span class="card-title grey-text text-darken-4"><i class="mdi-navigation-close right"></i></span>
+            </div>
+          </div>
+          <p>Um HQ de Maurício de Souza sobre Sol e Pele. A turma da Mônica. Mais um HQ da série <b>Saiba Mais!</b></p>
+        </div>
+      </div>
+    </div>
+    <div class="col s12 m4">
+      <div class="card" id="card-1">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="image-card-click" src="{% static 'img/capa/hq6.jpg' %}">
+        </div>
+        <div class="card-content">
+          <div class="row card-title activator grey-text text-darken-4">
+            <div class="col s12 m11">
+              <span class="activator">Turma da Mônica: Alimentos Saudáveis</span>
+            </div>
+            <div class="col s12 m1">
+              <span><i class="mdi-navigation-more-vert right"></i></span>
+            </div>
+          </div>
+          <p class="center"><a class="modal-trigger waves-effect waves-teal btn-flat teal-text" data-target="modal2">Comentários</a></p>
+        </div>
+        <div class="card-reveal">
+          <div class="row">
+            <div class="col s12 m11">
+              <span class="card-title grey-text text-darken-4">Turma da Mônica: Alimentos Saudáveis</span>
+            </div>  
+            <div class="col s12 m1">
+              <span class="card-title grey-text text-darken-4"><i class="mdi-navigation-close right"></i></span>
+            </div>
+          </div>
+          <p>Um HQ de Maurício de Souza sobre Alimentação. A turma da Mônica. Mais um HQ da série <b>Saiba Mais!</b></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal1" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>Modal Header</h4>
+      <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#" class="modal-action modal-close waves-effect waves-teal btn-flat teal-text">Fechar</a>
+    </div>
+  </div>
+
+  <div id="modal2" class="modal bottom-sheet modal-comments">
+    <div class="modal-content">
+      <h4>Comentários</h4>
+      <ul class="collection">
+        <li class="collection-item avatar">
+          <img class="circle" src="{% static 'img/avatars/avatar1.png' %}">
+          <span class="title bold">Pedro da Silva</span>
+          <p>Este HQ é muito legal</p>
+          <a href="#!" class="secondary-content"><i class="mdi-action-grade"></i></a>
+        </li>
+        <li class="collection-item avatar">
+          <img class="circle" src="{% static 'img/avatars/avatar2.png' %}">
+          <span class="title bold">Paulo Roberto</span>
+          <p>Muito legal mesmo Gabriel</p>
+          <a href="#!" class="secondary-content"><i class="mdi-action-grade"></i></a>
+        </li>
+        <li class="collection-item avatar">
+          <img class="circle" src="{% static 'img/avatars/avatar3.png' %}">
+          <span class="title bold">Antônio Carlos</span>
+          <p>Oba, estava esperando por este HQ, vamos trocar?</p>
+          <a href="#!" class="secondary-content"><i class="mdi-action-grade"></i></a>
+        </li>
+        <li class="collection-item avatar">
+          <img class="circle" src="{% static 'img/avatars/avatar4.png' %}">
+          <span class="title bold">João Carlos Cavalcante</span>
+          <p>Vamos, qual HQ você tem aí?</p>
+          <a href="#!" class="secondary-content"><i class="mdi-action-grade"></i></a>
+        </li>
+        <li class="collection-item comment-area">
+          <div class="row">
+            <form class="col s12" method="POST">
+              <div class="row">
+                <div class="input-field col s12">
+                  <i class="mdi-editor-mode-edit prefix"></i>
+                  <textarea id="textarea1" class="materialize-textarea" length="500"></textarea>
+                  <label for="textarea1">Escreva seu comentário</label>
+                </div>
+              </div>
+              <div class="row center">
+                <div class="input-field col s12">
+                  <button type="submit" class="waves-effect waves-light btn"><i class="mdi-communication-comment"> </i>Comentar</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+{% endblock content %}
+{% block script %}
+  <script type="text/javascript">
+    $('.image-card-click').on('click', function() {
+        console.log($(this).parent().parent().attr('id'));
+        $('#modal1').openModal();
+      });
+  </script>
+{% endblock script %}

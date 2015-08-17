@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "Registrar novo membro" %}{% endblock title %}
+{% block title_nav %}{% trans "Registrar novo membro" %}{% endblock title_nav %}
+
+{% block header %}
+{% endblock header %}
+
+{% block content %}
+  <div class="container center container-top">
+    <h3>{% trans "Registre um novo membro" %}</h3>
+  </div>
+  <div class="container">
+    <div class="row">
+      <form class="col s12" method="POST">
+        <div class="row">
+          <div class="input-field col s6">
+            <i class="mdi-action-assignment-ind prefix"></i>
+            <input id="first-name" type="text" class="validate" />
+            <label for="first-name">{% trans "Primeiro nome" %}</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="last-name" type="text" class="validate" />
+            <label for="last-name">{% trans "Sobrenome" %}</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+            <i class="mdi-action-assignment prefix"></i>
+            <input id="cpf" type="text" class="validate" />
+            <label for="cpf">{% trans "CPF" %}</label>
+          </div>
+          <div class="input-field col s6">
+            <i class="mdi-communication-phone prefix"></i>
+            <input id="phone" type="text" class="validate" />
+            <label for="phone">{% trans "Telefone" %}</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s8">
+            <i class="mdi-communication-email prefix"></i>
+            <input id="email" type="email" class="validate" />
+            <label for="email">{% trans "E-mail" %}</label>
+          </div>
+          <div class="input-field col s4">
+            <select>
+              <option value="1" selected>Usuário</option>
+              <option value="2">Administrador</option>
+            </select>
+            <label>Nível de Acesso</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="mdi-maps-store-mall-directory prefix"></i>
+            <input id="full-adress" type="text" class="validate" />
+            <label for="full-adress">{% trans "Endereço completo" %}</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s5">
+            <i class="mdi-maps-place prefix"></i>
+            <input id="city" type="text" class="validate" />
+            <label for="city">{% trans "Cidade" %}</label>
+          </div>
+          <div class="input-field col s5">
+            <input id="state" type="text" class="validate" />
+            <label for="state">{% trans "Estado" %}</label>
+          </div>
+          <div class="input-field col s2">
+            <input id="cep" type="text" class="validate" maxlength="9" />
+            <label for="cep">{% trans "CEP" %}</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+            <i class="mdi-action-account-circle prefix"></i>
+            <input id="login" type="text" class="validate" />
+            <label for="login">{% trans "Login" %}</label>
+          </div>
+          <div class="input-field col s6">
+            <i class="mdi-action-lock prefix"></i>
+            <input id="password" type="password" minlength="6" class="validate" />
+            <label for="password">{% trans "Senha" %}</label>
+          </div>
+        </div>
+        <div class="row center">
+          <button class="btn-large waves-effect waves-light" type="submit" name="action">{% trans "Registrar" %}
+            <i class="mdi-content-send right"></i>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  {# Nome completo, e-mail, telefone, rua, bairro, cidade, estado, CEP, CPF, lista de interesses, nível de acesso, login e senha. #}
+{% endblock content %}
+{% block script %}
+  <script type="text/javascript">
+  $('input[type=text]#cep').on('input', function() {
+    this.value = this.value.replace(/[^0-9.-]/g, '');
+    this.value = this.value.replace(/(\-.*)\-/g, '$1');
+  });
+
+  $(document).ready(function() {
+    $('select').material_select();
+  });
+  </script>
+{% endblock script %}

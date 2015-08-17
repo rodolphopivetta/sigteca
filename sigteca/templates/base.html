@@ -1,0 +1,130 @@
+{% load staticfiles %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="description" content="SiGTeca - Sistema Gerenciador do clube GibiTeca">
+    <meta name="keywords" content="sistema gerenciador clube gibi">
+    <meta name="author" content="Rodolpho Pivetta">
+    <!--link href="{% static 'css/main.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/-->
+    <link href="{% static 'css/materialize.min.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>{% block title %}{% endblock %}</title>
+    <style type="text/css">
+      header, main, footer {
+        padding-left: 240px;
+      }
+
+      body {
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+      }
+
+      main {
+        flex: 1 0 auto;
+      }
+
+      footer.page-footer {
+        padding-top: 0px;
+      }
+
+      @media only screen and (max-width : 992px) {
+        header, main, footer {
+          padding-left: 0;
+        }
+      }
+
+      ul.side-nav.fixed li.logo {
+        border-bottom: 1px solid #ddd;
+        text-align: center;
+        pointer-events: none;
+      }
+      div.nav-wrapper {
+        padding-left: 10px;
+      }
+      nav.top-nav a.page-title {
+        padding-left: 40px;
+        font-size: 28px;
+      }
+      div.container-top {
+        margin-top: 50px;
+      }
+
+      .bold {
+        font-weight: bold;
+      }
+
+      ::-webkit-scrollbar {
+        max-width: 10px;
+      }
+       
+      ::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 2px 2px 50px -5px rgba(0,0,0,0.3);
+        -moz-box-shadow: inset 2px 2px 50px -5px rgba(0,0,0,0.3);
+        box-shadow: inset 2px 2px 50px -5px rgba(0,0,0,0.3);
+        border-radius: 2px;
+      }
+       
+      ::-webkit-scrollbar-thumb {
+        /*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); */
+        -webkit-box-shadow: inset 2px 2px 50px -5px rgba(0,0,0,0.5);
+        -moz-box-shadow: inset 2px 2px 50px -5px rgba(0,0,0,0.5);
+        box-shadow: inset 2px 2px 50px -5px rgba(0,0,0,0.5);
+        border-radius: 2px;
+      }
+    </style>
+    {% block header %}{% endblock header %}
+  </head>
+  <body>
+    <header>
+      <ul id="dropdown-settings" class="dropdown-content">
+        <li><a href="#!">{% trans "Perfil" %}</a></li>
+        <li class="divider"></li>
+        <li><a href="#!">{% trans "Sair" %}</a></li>
+      </ul>
+      <nav class="top-nav teal z-depth-3">
+        <div class="nav-wrapper">
+          <a class="page-title">{% block title_nav %}{% endblock %}</a>
+          <ul class="right">
+            <li><a class="dropdown-button" href="#!" data-activates="dropdown-settings">{% trans "Configurações" %}<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
+          </ul>
+        </div>
+      </nav>
+      <ul id="nav-mobile" class="side-nav fixed">
+        <li class="logo"><a class="brand-logo"><i class="mdi-action-face-unlock medium"></i></a></li>
+        <li class="active"><a href="{% url 'index' %}"><i class="mdi-action-home"></i> {% trans "Página Inicial" %}</a></li>
+        <li><a href="#"><i class="mdi-action-stars"></i> {% trans "Lista de Preferência" %}</a></li>
+        <li><a href="{% url 'register_hq' %}"><i class="mdi-content-add-circle"></i> {% trans "Cadastrar HQ" %}</a></li>
+        <li><a href="{% url 'register_member' %}"><i class="mdi-social-person-add"></i> {% trans "Cadastrar membro" %}</a></li>
+      </ul>
+    </header>
+    <main>
+      {% block content %}{% endblock content %}
+    </main>
+    <footer class="page-footer teal">
+      <div class="footer-copyright">
+        <div class="container">
+          © <p style="display: inline;" id="copyright-year">2015</p> Copyright - Rodolpho Pivetta Sabino
+          <a class="grey-text text-lighten-4 right" href="">{% trans "Contato" %}</a>
+        </div>
+      </div>
+    </footer>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
+    <script type="text/javascript">
+      $('.button-collapse').sideNav({
+          edge: 'left', // Choose the horizontal origin
+        }
+      );
+      $(document).ready(function(){
+        // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+        $('.modal-trigger').leanModal();
+        $('#copyright-year').replaceWith(String((new Date).getFullYear()));
+      });
+    </script>
+    {% block script %}{% endblock script %}
+  </body>
+</html>
